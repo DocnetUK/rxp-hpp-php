@@ -1,52 +1,74 @@
 <?php
 
-
 namespace com\realexpayments\hpp\sdk;
 
 use Logger;
 
 /**
  * Class RXPLogger. Wraps initialisation of the logging framework
+ *
  * @package com\realexpayments\remote\sdk
  */
-class RXPLogger {
+class RXPLogger
+{
+    /**
+     * @var bool
+     */
+    private static $initialised = false;
 
-	/**
-	 * @var bool
-	 */
-	private static $initialised = false;
+    /* @var \Psr\Log\LoggerInterface|null
+     */
+    private static $psrLogger = null;
 
-	/**
-	 * @param string $className
-	 *
-	 * @return Logger
-	 */
-	public static function GetLogger( $className ) {
-		if ( ! self::IsInitialised() ) {
-			self::Initialise();
-		}
+    /**
+     * @param \Psr\Log\LoggerInterface|null $logger
+     * @return void
+     */
+    public static function SetLogger($logger)
+    {
+        self::$psrLogger = $logger;
+    }
 
-		$logger = Logger::getLogger( $className );
+    /**
+     * @param string $className
+     *
+     * @return Logger|\Psr\Log\LoggerInterface
+     */
+    public static function GetLogger($className)
+    {
+        if (self::$psrLogger == null) {
+            return self::$psrLogger;
+        }
 
-		return $logger;
+        if (!self::IsInitialised()) {
+            self::Initialise();
+        }
 
-	}
+        $logger = Logger::getLogger($className);
 
-	private static function Initialise() {
+        return $logger;
 
-		$path = $_SERVER['DOCUMENT_ROOT'] . '/config.xml';
-		if ( file_exists( $path ) ) {
-			Logger::configure( $path );
-		} else {
-			Logger::configure( __DIR__ . '/config.xml' );
-		}
+    }
 
+    private static function Initialise()
+    {
+        if (!class_exists("\Logger")) {
+            throw new \RuntimeException('Neither the Logger is set, nor is apache/log4php library installed');
+        }
 
-		self::$initialised = true;
-	}
+        $path = $_SERVER['DOCUMENT_ROOT'] . '/config.xml';
+        if (file_exists($path)) {
+            Logger::configure($path);
+        } else {
+            Logger::configure(__DIR__ . '/config.xml');
+        }
 
-	private static function IsInitialised() {
-		return self::$initialised;
-	}
+        self::$initialised = true;
+    }
+
+    private static function IsInitialised()
+    {
+        return self::$initialised;
+    }
 
 }

@@ -13,7 +13,7 @@ class JsonUtils
 {
 
     /**
-     * @var Logger logger
+     * @var Logger|\Psr\Log\LoggerInterface|null
      */
     private static $logger;
     private static $initialised = false;
@@ -22,7 +22,6 @@ class JsonUtils
      * @var iMapper[] logger
      */
     private static $mappers;
-
 
     /**
      * Method serialises <code>HppRequest</code> or  <code>HppResponse</code>  to JSON.
@@ -36,7 +35,6 @@ class JsonUtils
 
         $mapper = self::$mappers[get_class($hppObject)];
         return $mapper->WriteValueAsString($hppObject);
-
     }
 
     /**
@@ -67,14 +65,11 @@ class JsonUtils
         return $mapper->ReadValue($json);
     }
 
-
-
     private static function Initialise()
     {
         if (self::$initialised) {
             return;
         }
-
 
         self::$logger = RXPLogger::getLogger(__CLASS__);
 

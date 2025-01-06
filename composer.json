@@ -21,12 +21,13 @@
   "license": "MIT",
   "require": {
     "php": ">=8.0",
-    "apache/log4php": "2.3.*",
     "symfony/validator": "2.7.*",
     "doctrine/annotations":"~1",
     "doctrine/cache":"1.4.*"
   },
   "require-dev": {
+    "apache/log4php": "2.3.*",
+    "psr/log": "^1.0 || ^2.0 || ^3.0",
     "phpunit/phpunit": "^9.3"
   },
   "autoload": {
