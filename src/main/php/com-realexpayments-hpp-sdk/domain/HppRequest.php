@@ -2202,64 +2202,61 @@ class HppRequest {
 	 * @return HppRequest
 	 */
 	public function encode( $charSet ) {
-		$this->account               = base64_encode( $this->account );
-		$this->amount                = base64_encode( $this->amount );
-		$this->autoSettleFlag        = base64_encode( $this->autoSettleFlag );
-		$this->billingCode           = base64_encode( $this->billingCode );
-		$this->billingCountry        = base64_encode( $this->billingCountry );
-		$this->cardPaymentButtonText = base64_encode( $this->cardPaymentButtonText );
-		$this->cardStorageEnable     = base64_encode( $this->cardStorageEnable );
-		$this->commentOne            = base64_encode( $this->commentOne );
-		$this->commentTwo            = base64_encode( $this->commentTwo );
-		$this->currency              = base64_encode( $this->currency );
-		$this->customerNumber        = base64_encode( $this->customerNumber );
-		$this->hash                  = base64_encode( $this->hash );
-		$this->language              = base64_encode( $this->language );
-		$this->merchantId            = base64_encode( $this->merchantId );
-		$this->offerSaveCard         = base64_encode( $this->offerSaveCard );
-		$this->orderId               = base64_encode( $this->orderId );
-		$this->payerExists           = base64_encode( $this->payerExists );
-		$this->payerReference        = base64_encode( $this->payerReference );
-		$this->paymentReference      = base64_encode( $this->paymentReference );
-		$this->productId             = base64_encode( $this->productId );
-		$this->returnTss             = base64_encode( $this->returnTss );
-		$this->shippingCode          = base64_encode( $this->shippingCode );
-		$this->shippingCountry       = base64_encode( $this->shippingCountry );
-		$this->timeStamp             = base64_encode( $this->timeStamp );
-		$this->variableReference     = base64_encode( $this->variableReference );
-		$this->validateCardOnly 	 = base64_encode( $this->validateCardOnly );
-		$this->dccEnable         	 = base64_encode( $this->dccEnable );
-		$this->hppVersion     		 = base64_encode( $this->hppVersion );
-		$this->hppSelectStoredCard    = base64_encode( $this->hppSelectStoredCard );
-		$this->postResponse   		 = base64_encode( $this->postResponse );
-		$this->postDimensions   	 = base64_encode( $this->postDimensions );
-		$this->customerEmailAddress = base64_encode( $this->customerEmailAddress );
-		$this->customerMobilePhoneNumber = base64_encode( $this->customerMobilePhoneNumber );
-		$this->billingAddressLine1 = base64_encode( $this->billingAddressLine1 );
-		$this->billingAddressLine2 = base64_encode( $this->billingAddressLine2 );
-		$this->billingAddressLine3 = base64_encode( $this->billingAddressLine3 );
-		$this->billingCity = base64_encode( $this->billingCity );
-		$this->billingState = base64_encode( $this->billingState );
-		$this->billingPostalCode = base64_encode( $this->billingPostalCode );
-		$this->billingCountryCode = base64_encode( $this->billingCountryCode );
-		$this->shippingAddressLine1 = base64_encode( $this->shippingAddressLine1 );
-		$this->shippingAddressLine2 = base64_encode( $this->shippingAddressLine2 );
-		$this->shippingAddressLine3 = base64_encode( $this->shippingAddressLine3 );
-		$this->shippingCity = base64_encode( $this->shippingCity );
-		$this->shippingState = base64_encode( $this->shippingState );
-		$this->shippingPostalCode = base64_encode( $this->shippingPostalCode );
-		$this->shippingCountryCode = base64_encode( $this->shippingCountryCode );
-		$this->shippingAddressMatchIndicator = base64_encode( $this->shippingAddressMatchIndicator );
-		$this->challengeRequestIndicator = base64_encode( $this->challengeRequestIndicator );
+		$this->account               = base64_encode( $this->account ?? "" );
+		$this->amount                = base64_encode( $this->amount ?? "" );
+		$this->autoSettleFlag        = base64_encode( $this->autoSettleFlag ?? "" );
+		$this->billingCode           = base64_encode( $this->billingCode ?? "" );
+		$this->billingCountry        = base64_encode( $this->billingCountry ?? "" );
+		$this->cardPaymentButtonText = base64_encode( $this->cardPaymentButtonText ?? "" );
+		$this->cardStorageEnable     = base64_encode( $this->cardStorageEnable ?? "" );
+		$this->commentOne            = base64_encode( $this->commentOne ?? "" );
+		$this->commentTwo            = base64_encode( $this->commentTwo ?? "" );
+		$this->currency              = base64_encode( $this->currency ?? "" );
+		$this->customerNumber        = base64_encode( $this->customerNumber ?? "" );
+		$this->hash                  = base64_encode( $this->hash ?? "" );
+		$this->language              = base64_encode( $this->language ?? "" );
+		$this->merchantId            = base64_encode( $this->merchantId ?? "" );
+		$this->offerSaveCard         = base64_encode( $this->offerSaveCard ?? "" );
+		$this->orderId               = base64_encode( $this->orderId ?? "" );
+		$this->payerExists           = base64_encode( $this->payerExists ?? "" );
+		$this->payerReference        = base64_encode( $this->payerReference ?? "" );
+		$this->paymentReference      = base64_encode( $this->paymentReference ?? "" );
+		$this->productId             = base64_encode( $this->productId ?? "" );
+		$this->returnTss             = base64_encode( $this->returnTss ?? "" );
+		$this->shippingCode          = base64_encode( $this->shippingCode ?? "" );
+		$this->shippingCountry       = base64_encode( $this->shippingCountry ?? "" );
+		$this->timeStamp             = base64_encode( $this->timeStamp ?? "" );
+		$this->variableReference     = base64_encode( $this->variableReference ?? "" );
+		$this->validateCardOnly 	 = base64_encode( $this->validateCardOnly ?? "" );
+		$this->dccEnable         	 = base64_encode( $this->dccEnable ?? "" );
+		$this->hppVersion     		 = base64_encode( $this->hppVersion ?? "" );
+		$this->hppSelectStoredCard    = base64_encode( $this->hppSelectStoredCard ?? "" );
+		$this->postResponse   		 = base64_encode( $this->postResponse ?? "" );
+		$this->postDimensions   	 = base64_encode( $this->postDimensions ?? "" );
+		$this->customerEmailAddress = base64_encode( $this->customerEmailAddress ?? "" );
+		$this->customerMobilePhoneNumber = base64_encode( $this->customerMobilePhoneNumber ?? "" );
+		$this->billingAddressLine1 = base64_encode( $this->billingAddressLine1 ?? "" );
+		$this->billingAddressLine2 = base64_encode( $this->billingAddressLine2 ?? "" );
+		$this->billingAddressLine3 = base64_encode( $this->billingAddressLine3 ?? "" );
+		$this->billingCity = base64_encode( $this->billingCity ?? "" );
+		$this->billingState = base64_encode( $this->billingState ?? "" );
+		$this->billingPostalCode = base64_encode( $this->billingPostalCode ?? "" );
+		$this->billingCountryCode = base64_encode( $this->billingCountryCode ?? "" );
+		$this->shippingAddressLine1 = base64_encode( $this->shippingAddressLine1 ?? "" );
+		$this->shippingAddressLine2 = base64_encode( $this->shippingAddressLine2 ?? "" );
+		$this->shippingAddressLine3 = base64_encode( $this->shippingAddressLine3 ?? "" );
+		$this->shippingCity = base64_encode( $this->shippingCity ?? "" );
+		$this->shippingState = base64_encode( $this->shippingState ?? "" );
+		$this->shippingPostalCode = base64_encode( $this->shippingPostalCode ?? "" );
+		$this->shippingCountryCode = base64_encode( $this->shippingCountryCode ?? "" );
+		$this->shippingAddressMatchIndicator = base64_encode( $this->shippingAddressMatchIndicator ?? "" );
+		$this->challengeRequestIndicator = base64_encode( $this->challengeRequestIndicator ?? "" );
 
 		if ( is_array( $this->supplementaryData ) ) {
 			foreach ( $this->supplementaryData as $key => $value ) {
 				$this->supplementaryData[ $key ] = base64_encode( $value );
 			}
 		}
-
-
-
 
 		return $this;
 	}
@@ -2272,56 +2269,55 @@ class HppRequest {
 	 * @return HppRequest
 	 */
 	public function decode( $charSet ) {
-		$this->account               = base64_decode( $this->account );
-		$this->amount                = base64_decode( $this->amount );
-		$this->autoSettleFlag        = base64_decode( $this->autoSettleFlag );
-		$this->billingCode           = base64_decode( $this->billingCode );
-		$this->billingCountry        = base64_decode( $this->billingCountry );
-		$this->cardPaymentButtonText = base64_decode( $this->cardPaymentButtonText );
-		$this->cardStorageEnable     = base64_decode( $this->cardStorageEnable );
-		$this->commentOne            = base64_decode( $this->commentOne );
-		$this->commentTwo            = base64_decode( $this->commentTwo );
-		$this->currency              = base64_decode( $this->currency );
-		$this->customerNumber        = base64_decode( $this->customerNumber );
-		$this->hash                  = base64_decode( $this->hash );
-		$this->language              = base64_decode( $this->language );
-		$this->merchantId            = base64_decode( $this->merchantId );
-		$this->offerSaveCard         = base64_decode( $this->offerSaveCard );
-		$this->orderId               = base64_decode( $this->orderId );
-		$this->payerExists           = base64_decode( $this->payerExists );
-		$this->payerReference        = base64_decode( $this->payerReference );
-		$this->paymentReference      = base64_decode( $this->paymentReference );
-		$this->productId             = base64_decode( $this->productId );
-		$this->returnTss             = base64_decode( $this->returnTss );
-		$this->shippingCode          = base64_decode( $this->shippingCode );
-		$this->shippingCountry       = base64_decode( $this->shippingCountry );
-		$this->timeStamp             = base64_decode( $this->timeStamp );
-		$this->variableReference     = base64_decode( $this->variableReference );
-		$this->validateCardOnly      = base64_decode( $this->validateCardOnly );
-		$this->dccEnable       		 = base64_decode( $this->dccEnable );
-		$this->hppVersion     		 = base64_decode( $this->hppVersion );
-		$this->hppSelectStoredCard   	= base64_decode( $this->hppSelectStoredCard );
-		$this->postResponse   		= base64_decode( $this->postResponse );
-		$this->postDimensions   	= base64_decode( $this->postDimensions );
-		$this->customerEmailAddress = base64_decode( $this->customerEmailAddress );
-		$this->customerMobilePhoneNumber = base64_decode( $this->customerMobilePhoneNumber );
-		$this->billingAddressLine1 = base64_decode( $this->billingAddressLine1 );
-		$this->billingAddressLine2 = base64_decode( $this->billingAddressLine2 );
-		$this->billingAddressLine3 = base64_decode( $this->billingAddressLine3 );
-		$this->billingCity = base64_decode( $this->billingCity );
-		$this->billingState = base64_decode( $this->billingState );
-		$this->billingPostalCode = base64_decode( $this->billingPostalCode );
-		$this->billingCountryCode = base64_decode( $this->billingCountryCode );
-		$this->shippingAddressLine1 = base64_decode( $this->shippingAddressLine1 );
-		$this->shippingAddressLine2 = base64_decode( $this->shippingAddressLine2 );
-		$this->shippingAddressLine3 = base64_decode( $this->shippingAddressLine3 );
-		$this->shippingCity = base64_decode( $this->shippingCity );
-		$this->shippingState = base64_decode( $this->shippingState );
-		$this->shippingPostalCode = base64_decode( $this->shippingPostalCode );
-		$this->shippingCountryCode = base64_decode( $this->shippingCountryCode );
-		$this->shippingAddressMatchIndicator = base64_decode( $this->shippingAddressMatchIndicator );
-		$this->challengeRequestIndicator = base64_decode( $this->challengeRequestIndicator );
-
+		$this->account               = base64_decode( $this->account ?? "" );
+		$this->amount                = base64_decode( $this->amount ?? "" );
+		$this->autoSettleFlag        = base64_decode( $this->autoSettleFlag ?? "" );
+		$this->billingCode           = base64_decode( $this->billingCode ?? "" );
+		$this->billingCountry        = base64_decode( $this->billingCountry ?? "" );
+		$this->cardPaymentButtonText = base64_decode( $this->cardPaymentButtonText ?? "" );
+		$this->cardStorageEnable     = base64_decode( $this->cardStorageEnable ?? "" );
+		$this->commentOne            = base64_decode( $this->commentOne ?? "" );
+		$this->commentTwo            = base64_decode( $this->commentTwo ?? "" );
+		$this->currency              = base64_decode( $this->currency ?? "" );
+		$this->customerNumber        = base64_decode( $this->customerNumber ?? "" );
+		$this->hash                  = base64_decode( $this->hash ?? "" );
+		$this->language              = base64_decode( $this->language ?? "" );
+		$this->merchantId            = base64_decode( $this->merchantId ?? "" );
+		$this->offerSaveCard         = base64_decode( $this->offerSaveCard ?? "" );
+		$this->orderId               = base64_decode( $this->orderId ?? "" );
+		$this->payerExists           = base64_decode( $this->payerExists ?? "" );
+		$this->payerReference        = base64_decode( $this->payerReference ?? "" );
+		$this->paymentReference      = base64_decode( $this->paymentReference ?? "" );
+		$this->productId             = base64_decode( $this->productId ?? "" );
+		$this->returnTss             = base64_decode( $this->returnTss ?? "" );
+		$this->shippingCode          = base64_decode( $this->shippingCode ?? "" );
+		$this->shippingCountry       = base64_decode( $this->shippingCountry ?? "" );
+		$this->timeStamp             = base64_decode( $this->timeStamp ?? "" );
+		$this->variableReference     = base64_decode( $this->variableReference ?? "" );
+		$this->validateCardOnly      = base64_decode( $this->validateCardOnly ?? "" );
+		$this->dccEnable       		 = base64_decode( $this->dccEnable ?? "" );
+		$this->hppVersion     		 = base64_decode( $this->hppVersion ?? "" );
+		$this->hppSelectStoredCard   	= base64_decode( $this->hppSelectStoredCard ?? "" );
+		$this->postResponse   		= base64_decode( $this->postResponse ?? "" );
+		$this->postDimensions   	= base64_decode( $this->postDimensions ?? "" );
+		$this->customerEmailAddress = base64_decode( $this->customerEmailAddress ?? "" );
+		$this->customerMobilePhoneNumber = base64_decode( $this->customerMobilePhoneNumber ?? "" );
+		$this->billingAddressLine1 = base64_decode( $this->billingAddressLine1 ?? "" );
+		$this->billingAddressLine2 = base64_decode( $this->billingAddressLine2 ?? "" );
+		$this->billingAddressLine3 = base64_decode( $this->billingAddressLine3 ?? "" );
+		$this->billingCity = base64_decode( $this->billingCity ?? "" );
+		$this->billingState = base64_decode( $this->billingState ?? "" );
+		$this->billingPostalCode = base64_decode( $this->billingPostalCode ?? "" );
+		$this->billingCountryCode = base64_decode( $this->billingCountryCode ?? "" );
+		$this->shippingAddressLine1 = base64_decode( $this->shippingAddressLine1 ?? "" );
+		$this->shippingAddressLine2 = base64_decode( $this->shippingAddressLine2 ?? "" );
+		$this->shippingAddressLine3 = base64_decode( $this->shippingAddressLine3 ?? "" );
+		$this->shippingCity = base64_decode( $this->shippingCity ?? "" );
+		$this->shippingState = base64_decode( $this->shippingState ?? "" );
+		$this->shippingPostalCode = base64_decode( $this->shippingPostalCode ?? "" );
+		$this->shippingCountryCode = base64_decode( $this->shippingCountryCode ?? "" );
+		$this->shippingAddressMatchIndicator = base64_decode( $this->shippingAddressMatchIndicator ?? "" );
+		$this->challengeRequestIndicator = base64_decode( $this->challengeRequestIndicator ?? "" );
 
 		if ( is_array( $this->supplementaryData ) ) {
 			foreach ( $this->supplementaryData as $key => $value ) {
@@ -2371,25 +2367,25 @@ class HppRequest {
 	    $this->hppVersion = $this->nullToEmptyString($this->hppVersion);
 	    $this->hppSelectStoredCard = $this->nullToEmptyString($this->hppSelectStoredCard);
 	    $this->postResponse = $this->nullToEmptyString($this->postResponse);
-			$this->postDimensions = $this->nullToEmptyString($this->postDimensions);
-			$this->customerEmailAddress = $this->nullToEmptyString($this->customerEmailAddress);
-			$this->customerMobilePhoneNumber = $this->nullToEmptyString($this->customerMobilePhoneNumber);
-			$this->billingAddressLine1 = $this->nullToEmptyString($this->billingAddressLine1);
-			$this->billingAddressLine2 = $this->nullToEmptyString($this->billingAddressLine2);
-			$this->billingAddressLine3 = $this->nullToEmptyString($this->billingAddressLine3);
-			$this->billingCity = $this->nullToEmptyString($this->billingCity);
-			$this->billingState = $this->nullToEmptyString($this->billingState);
-			$this->billingPostalCode = $this->nullToEmptyString($this->billingPostalCode);
-			$this->billingCountryCode = $this->nullToEmptyString($this->billingCountryCode);
-			$this->shippingAddressLine1 = $this->nullToEmptyString($this->shippingAddressLine1);
-			$this->shippingAddressLine2 = $this->nullToEmptyString($this->shippingAddressLine2);
-			$this->shippingAddressLine3 = $this->nullToEmptyString($this->shippingAddressLine3);
-			$this->shippingCity = $this->nullToEmptyString($this->shippingCity);
-			$this->shippingState = $this->nullToEmptyString($this->shippingState);
-			$this->shippingPostalCode = $this->nullToEmptyString($this->shippingPostalCode);
-			$this->shippingCountryCode = $this->nullToEmptyString($this->shippingCountryCode);
-			$this->shippingAddressMatchIndicator = $this->nullToEmptyString($this->shippingAddressMatchIndicator);
-			$this->challengeRequestIndicator = $this->nullToEmptyString($this->challengeRequestIndicator);
+        $this->postDimensions = $this->nullToEmptyString($this->postDimensions);
+        $this->customerEmailAddress = $this->nullToEmptyString($this->customerEmailAddress);
+        $this->customerMobilePhoneNumber = $this->nullToEmptyString($this->customerMobilePhoneNumber);
+        $this->billingAddressLine1 = $this->nullToEmptyString($this->billingAddressLine1);
+        $this->billingAddressLine2 = $this->nullToEmptyString($this->billingAddressLine2);
+        $this->billingAddressLine3 = $this->nullToEmptyString($this->billingAddressLine3);
+        $this->billingCity = $this->nullToEmptyString($this->billingCity);
+        $this->billingState = $this->nullToEmptyString($this->billingState);
+        $this->billingPostalCode = $this->nullToEmptyString($this->billingPostalCode);
+        $this->billingCountryCode = $this->nullToEmptyString($this->billingCountryCode);
+        $this->shippingAddressLine1 = $this->nullToEmptyString($this->shippingAddressLine1);
+        $this->shippingAddressLine2 = $this->nullToEmptyString($this->shippingAddressLine2);
+        $this->shippingAddressLine3 = $this->nullToEmptyString($this->shippingAddressLine3);
+        $this->shippingCity = $this->nullToEmptyString($this->shippingCity);
+        $this->shippingState = $this->nullToEmptyString($this->shippingState);
+        $this->shippingPostalCode = $this->nullToEmptyString($this->shippingPostalCode);
+        $this->shippingCountryCode = $this->nullToEmptyString($this->shippingCountryCode);
+        $this->shippingAddressMatchIndicator = $this->nullToEmptyString($this->shippingAddressMatchIndicator);
+        $this->challengeRequestIndicator = $this->nullToEmptyString($this->challengeRequestIndicator);
 	    
 	    if (is_array($this->supplementaryData)) {
 	        foreach ($this->supplementaryData as $key => $value) {
@@ -2419,9 +2415,8 @@ class HppRequest {
 	/**
 	 * @return string The class name
 	 */
-	public static function GetClassName() {
+	public static function GetClassName()
+    {
 		return __CLASS__;
 	}
-
-
 }
