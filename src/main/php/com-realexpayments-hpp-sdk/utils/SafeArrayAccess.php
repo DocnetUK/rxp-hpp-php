@@ -17,29 +17,27 @@ class SafeArrayAccess implements ArrayAccess
         $this->default = $default;
     }
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->array[$offset]);
     }
 
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
-        return isset($this->array[$offset])
-            ? $this->array[$offset]
-            : $this->default;
+        return $this->array[$offset] ?? $this->default;
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->array[$offset] = $value;
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->array[$offset]);
     }
 
-    public function getUnderLayingArray()
+    public function getUnderLayingArray(): array
     {
         return $this->array;
     }
