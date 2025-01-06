@@ -6,16 +6,10 @@ namespace com\realexpayments\hpp\sdk\utils;
 
 use com\realexpayments\hpp\sdk\domain\HppRequest;
 use com\realexpayments\hpp\sdk\domain\HppResponse;
-use com\realexpayments\hpp\sdk\RXPLogger;
-use Logger;
 
 class JsonUtils
 {
 
-    /**
-     * @var Logger|\Psr\Log\LoggerInterface|null
-     */
-    private static $logger;
     private static $initialised = false;
 
     /**
@@ -70,8 +64,6 @@ class JsonUtils
         if (self::$initialised) {
             return;
         }
-
-        self::$logger = RXPLogger::getLogger(__CLASS__);
 
         self::$mappers = array();
 
