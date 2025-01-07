@@ -36,7 +36,7 @@ class RXPLogger
      */
     public static function GetLogger($className)
     {
-        if (self::$psrLogger == null) {
+        if (self::$psrLogger !== null) {
             return self::$psrLogger;
         }
 
@@ -44,10 +44,7 @@ class RXPLogger
             self::Initialise();
         }
 
-        $logger = Logger::getLogger($className);
-
-        return $logger;
-
+        return Logger::getLogger($className);
     }
 
     private static function Initialise()
