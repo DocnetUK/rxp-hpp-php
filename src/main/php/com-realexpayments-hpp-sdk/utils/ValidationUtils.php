@@ -22,9 +22,9 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
  */
 class ValidationUtils {
 
-	/**
-	 * @var Logger logger
-	 */
+    /**
+     * @var Logger|\Psr\Log\LoggerInterface|null
+     */
 	private static $logger;
 	private static $initialised = false;
 
@@ -32,7 +32,6 @@ class ValidationUtils {
 	 * @var ValidatorInterface validator
 	 */
 	private static $validator;
-
 
 	/**
 	 * Method validates HPP request object using JSR-303 bean validation.
@@ -64,7 +63,6 @@ class ValidationUtils {
 
 	}
 
-
 	private static function Initialise() {
 		if ( self::$initialised ) {
 			return;
@@ -80,7 +78,6 @@ class ValidationUtils {
 		self::$validator = Validation::createValidatorBuilder()
 		                             ->enableAnnotationMapping()
 		                             ->getValidator();
-
 
 		self::$initialised = true;
 	}

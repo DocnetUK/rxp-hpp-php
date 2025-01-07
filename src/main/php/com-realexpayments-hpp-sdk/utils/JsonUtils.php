@@ -6,23 +6,16 @@ namespace com\realexpayments\hpp\sdk\utils;
 
 use com\realexpayments\hpp\sdk\domain\HppRequest;
 use com\realexpayments\hpp\sdk\domain\HppResponse;
-use com\realexpayments\hpp\sdk\RXPLogger;
-use Logger;
 
 class JsonUtils
 {
 
-    /**
-     * @var Logger logger
-     */
-    private static $logger;
     private static $initialised = false;
 
     /**
      * @var iMapper[] logger
      */
     private static $mappers;
-
 
     /**
      * Method serialises <code>HppRequest</code> or  <code>HppResponse</code>  to JSON.
@@ -36,7 +29,6 @@ class JsonUtils
 
         $mapper = self::$mappers[get_class($hppObject)];
         return $mapper->WriteValueAsString($hppObject);
-
     }
 
     /**
@@ -67,16 +59,11 @@ class JsonUtils
         return $mapper->ReadValue($json);
     }
 
-
-
     private static function Initialise()
     {
         if (self::$initialised) {
             return;
         }
-
-
-        self::$logger = RXPLogger::getLogger(__CLASS__);
 
         self::$mappers = array();
 

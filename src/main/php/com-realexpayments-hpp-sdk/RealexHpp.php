@@ -37,7 +37,7 @@ class RealexHpp
 {
 
     /**
-     * @var Logger logger
+     * @var Logger|\Psr\Log\LoggerInterface
      */
     private $logger;
 
@@ -82,7 +82,6 @@ class RealexHpp
      */
     public function requestToJson(HppRequest $hppRequest, $encoded = true)
     {
-
         $this->logger->info("Converting HppRequest to JSON.");
 
         $json = null;
@@ -105,7 +104,7 @@ class RealexHpp
                 $hppRequest = $hppRequest->formatRequest(self::ENCODING_CHARSET);
             }
         } catch (Exception $e) {
-            $this->logger->error("Exception encoding HPP request.", $e);
+            $this->logError("Exception encoding HPP request.", $e);
             throw new RealexException("Exception encoding HPP request.", $e);
         }
 
@@ -114,6 +113,20 @@ class RealexHpp
         $json = JsonUtils::toJson($hppRequest);
 
         return $json;
+    }
+
+    /**
+     * @param string $message
+     * @param \Exception $e
+     * @return void
+     */
+    private function logError(string $message, \Exception $e)
+    {
+        if ($this->logger instanceof \Psr\Log\LoggerInterface) {
+            $this->logger->error($message, ['exception' => $e->getMessage(), 'trace' => $e->getTrace()]);
+            return;
+        }
+        $this->logger->error($message, $e);
     }
 
     /**
@@ -144,7 +157,7 @@ class RealexHpp
             try {
                 $hppRequest = $hppRequest->decode(self::ENCODING_CHARSET);
             } catch (Exception $e) {
-                $this->logger->error("Exception encoding HPP request.", $e);
+                $this->logError("Exception encoding HPP request.", $e);
                 throw new RealexException("Exception decoding HPP request.", $e);
             }
         }
@@ -187,7 +200,7 @@ class RealexHpp
         try {
             $hppResponse = $hppResponse->encode(self::ENCODING_CHARSET);
         } catch (Exception $e) {
-            $this->logger->error("Exception encoding HPP response.", $e);
+            $this->logError("Exception encoding HPP response.", $e);
             throw new RealexException("Exception encoding HPP response.", $e);
         }
 
@@ -197,7 +210,6 @@ class RealexHpp
 
         return $json;
     }
-
 
     /**
      * <p>
@@ -227,7 +239,7 @@ class RealexHpp
             try {
                 $hppResponse = $hppResponse->decode(self::ENCODING_CHARSET);
             } catch (Exception $e) {
-                $this->logger->error("Exception decoding HPP response.", $e);
+                $this->logError("Exception decoding HPP response.", $e);
                 throw new RealexException("Exception decoding HPP response.", $e);
             }
         }
@@ -238,6 +250,5 @@ class RealexHpp
 
         return $hppResponse;
     }
-
 
 }
