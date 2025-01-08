@@ -2,7 +2,7 @@
 
 namespace com\realexpayments\hpp\sdk;
 
-use Logger;
+use Psr\Log\NullLogger;
 
 /**
  * Class RXPLogger. Wraps initialisation of the logging framework
@@ -12,11 +12,7 @@ use Logger;
 class RXPLogger
 {
     /**
-     * @var bool
-     */
-    private static $initialised = false;
-
-    /* @var \Psr\Log\LoggerInterface|null
+     * @var \Psr\Log\LoggerInterface|null
      */
     private static $psrLogger = null;
 
@@ -30,42 +26,15 @@ class RXPLogger
     }
 
     /**
-     * @param string $className
-     *
-     * @return Logger|\Psr\Log\LoggerInterface
+     * @return \Psr\Log\LoggerInterface
      */
-    public static function GetLogger($className)
+    public static function GetLogger()
     {
         if (self::$psrLogger !== null) {
             return self::$psrLogger;
         }
 
-        if (!self::IsInitialised()) {
-            self::Initialise();
-        }
-
-        return Logger::getLogger($className);
-    }
-
-    private static function Initialise()
-    {
-        if (!class_exists("\Logger")) {
-            throw new \RuntimeException('Neither the Logger is set, nor is apache/log4php library installed');
-        }
-
-        $path = $_SERVER['DOCUMENT_ROOT'] . '/config.xml';
-        if (file_exists($path)) {
-            Logger::configure($path);
-        } else {
-            Logger::configure(__DIR__ . '/config.xml');
-        }
-
-        self::$initialised = true;
-    }
-
-    private static function IsInitialised()
-    {
-        return self::$initialised;
+        return new NullLogger();
     }
 
 }

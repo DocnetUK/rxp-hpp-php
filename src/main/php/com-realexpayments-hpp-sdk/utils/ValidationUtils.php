@@ -9,7 +9,6 @@ use com\realexpayments\hpp\sdk\domain\HppResponse;
 use com\realexpayments\hpp\sdk\RealexValidationException;
 use com\realexpayments\hpp\sdk\RXPLogger;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Logger;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -23,7 +22,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class ValidationUtils {
 
     /**
-     * @var Logger|\Psr\Log\LoggerInterface|null
+     * @var \Psr\Log\LoggerInterface|null
      */
 	private static $logger;
 	private static $initialised = false;
@@ -57,7 +56,7 @@ class ValidationUtils {
 				$message .= $validationMessage . '.';
 			}
 
-			self::$logger->info( $message );
+			self::$logger->info($message);
 			throw new RealexValidationException( "HppRequest failed validation", $validationMessages );
 		}
 
@@ -73,7 +72,7 @@ class ValidationUtils {
 
 		AnnotationRegistry::registerLoader( array( $loader, 'loadClass' ) );
 
-		self::$logger = RXPLogger::getLogger( __CLASS__ );
+		self::$logger = RXPLogger::getLogger();
 
 		self::$validator = Validation::createValidatorBuilder()
 		                             ->enableAnnotationMapping()
