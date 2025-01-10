@@ -26,7 +26,6 @@
     "doctrine/cache":"1.4.*"
   },
   "require-dev": {
-    "apache/log4php": "2.3.*",
     "psr/log": "^1.0 || ^2.0 || ^3.0",
     "phpunit/phpunit": "^9.3"
   },
